@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    <title>SHOW EMPLOYEE INFORMATION</title>
+{% endblock %}
+
+{% block content %}
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th>EMPLOYEE ID</th>
+            <th>FIRST NAME</th>
+			<th>LAST NAME</th>
+			<th>ADDRESS</th>
+            <th>AGE</th>
+            <th>CONTACT NUMBER</th>
+            <th>ACTION</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for obj in data %}
+        <tr>
+            <td>{{obj.eid}}</td>
+            <td>{{obj.fname}}</td>
+			<td>{{obj.lname}}</td>
+			<td>{{obj.address}}</td>
+            <td>{{obj.age}}</td>
+            <td>{{obj.contactno}}</td>
+            <td>
+                <button class="btn btn-warning "><a href="{% url 'update_url' obj.id %}">UPDATE</a></button>
+                <button class="btn btn-warning"><a href="{% url 'delete_url' obj.id %}">DELETE</a></button>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,18 @@
+
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title>ADD EMPLOYEE INFORMATION</title>
+{% endblock%}
+
+{% block content %}
+<div class="jumbotron container">
+    <form method="post">
+        {% csrf_token %}
+        {{form|crispy}}
+        <input type="submit" value="ADD" class="btn btn-outline-success col-4">
+        <input type="reset" value="RESET" class="float-right btn btn-outline-warning col-4">
+    </form>
+</div>
+{% endblock %}
